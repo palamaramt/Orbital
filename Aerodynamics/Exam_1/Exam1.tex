@@ -21,25 +21,25 @@
     \vspace{-0.5cm}
     \setlist{nolistsep}
 
-% ---------- Concepts ---------- %
+% ----- Concepts ----- %
 \section*{Concepts}
 
-% Variables
+% ----- Variables ----- %
 \subsection*{Variables}
 \textbf{Pressure} - Normal force per unit area exerted on a surface due to the time rate of change of momentum of the gas particles impacing said surface.\par
 $P = \lim_{dA\to 0}\frac{dF_n}{dA}$\par
 \textbf{Density} - Mass per unit volume.\par
 $\rho = \lim_{dV\to 0} \frac{dm}{dV}$\par
 \textbf{Temperature} - Change in kinetic energy due to random molecular motion.\par
-$KE = \frac{3}{2}kT$\par
+$\text{KE} = \frac{3}{2}kT$\par
 \textbf{Flow Velocity} - Velocity due to organized motion.\par
 $\vec{v} = \frac{d}{dt}\vec{x}$\par
 
-% Forces and Moments
+% ----- Forces and Moments ----- %
 \subsection*{Forces and Moments}
 \textbf{Causes of forces and moments on an aerodynamic body}:\par
 Pressure Distribution over the body surface.\par
-Shear Stress Distribution over the surface.\par
+Shear Stress Distribution over the surface: \par$\tau=\lim\limits_{dA \to 0}\frac{dF_f}{dA}=\mu\frac{dV}{dy}$\par
 
 \includegraphics[width=0.5\linewidth]{Images/aero_forces.png}\par
 \textbf{Lift and Drag per Unit Span}:\par
@@ -62,41 +62,13 @@ $x_{cp} = -\frac{M_{LE}'}{N'}$
 \textbf{Drag Coefficient}: $c_D = \frac{D}{q_\infty S}$\par
 \textbf{Moment Coefficient}: $c_M=\frac{M}{q_\infty S L}$
 
+% ----- Buckingham Pi Theorem ----- %
 \subsection*{Buckingham Pi Theorem}
 If we have a physically meaningful equation such as:\par
 $f(P_1,P_2,...,P_N) = 0$\par
 where $P_i$ are physical variables in terms of $K$ independent physical units (mass, length, time, temperature) then it can be restated as:\par 
 $F(\Pi_1,\Pi_2,...,\Pi_{N-K}) = 0$ or\par $\Pi_{N-K}=G(\Pi_1,\Pi_2,...,\Pi_{N-K-1})$\par 
 where ${\Pi_i}$ are dimensionaless variables known as Pi Groups.
-
-% ---------- Calculus ---------- %
-\section*{Calculus Review}
-\subsection*{Vector Calculus}
-\textbf{Magnitude}: $|\vec{A}|=\sqrt{A_1^2+A_2^2+a_3^2}$\par 
-\textbf{Dot Product}: $\vec{A}\cdot\vec{B}=A_xB_x+A_yB_y+A_zB_z=|\vec{A}||\vec{B}|\cos{\theta}$\par 
-\textbf{Cross Product}:$\vec{A}\times\vec{B}=(A_yB_z-A_zB_y)\hat{i}+(A+zB_x-a_xB_z)\hat{j}+(A_xB_y-A_yB_x)\hat{k}$\par
-$|\vec{A}\times\vec{B}|=|\vec{A}||\vec{B}|\sin{\theta}$\par 
-\textbf{Gradient of Scalar Field}: Vector Field\par 
-Cart.: $\vec{\nabla}p=\frac{\partial p}{\partial x}\hat{i}+\frac{\partial p}{\partial y}\hat{j}+\frac{\partial p}{\partial z}\hat{k}$\par 
-Cyl.: $\vec{\nabla}p=\frac{\partial p}{\partial r}\hat{r}+\frac{1}{r}\frac{\partial p}{\partial \theta}\hat{\theta}+\frac{\partial p}{\partial z}\hat{z}$\par
-Directional Derivative: $\frac{dp}{ds}=\vec{\nabla}p\cdot\vec{s}$-> unit vector in $\vec{s}$ direction.\par 
-\textbf{Divergence of a Vector Field}: Scalar Field\par 
-Cart.: $\text{div}\vec{V}=\vec{\nabla}\cdot\vec{V}=\frac{\partial V_x}{\partial x}+\frac{\partial V_y}{\partial y}+\frac{\partial V_z}{\partial z}$\par 
-Cyl.: $\text{div}\vec{V}=\vec{\nabla}\cdot\vec{V}=\frac{1}{r}\frac{\partial(r V_r)}{\partial r}+\frac{1}{r}\frac{\partial V_\theta}{\partial \theta}+\frac{\partial V_z}{\partial z}$\par 
-\textbf{Curl of a Vector Field}: $\text{curl}\vec{V}=\vec{\nabla}\times\vec{V}$\par 
-Cart.: $=(\frac{\partial V_z}{\partial y}-\frac{\partial V_y}{\partial z})\hat{i}
-+(\frac{\partial V_x}{\partial z}-\frac{\partial V_z}{\partial x})\hat{j}
-+(\frac{\partial V_y}{\partial x}-\frac{\partial V_x}{\partial y})\hat{k}$\par 
-Cyl.: $=(\frac{1}{r}\frac{\partial V_z}{\partial \theta}-\frac{\partial V_\theta}{\partial z})\hat{r}
-+(\frac{\partial V_r}{\partial z}-\frac{\partial V_z}{\partial r})\hat{\theta}
-+(\frac{1}{r}\frac{\partial}{\partial r}(V_\theta r)-\frac{1}{r}\frac{\partial V_r}{\partial \theta})\hat{z}$\par
-\textbf{Laplacian}:$\nabla^2$\par 
-Cart.: $=\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\frac{\partial^2}{\partial z^2}$\par 
-Cyl.: $=\frac{1}{r}\frac{\partial}{\partial r}(r\frac{\partial}{\partial r})+\frac{1}{r^2}\frac{\partial^2}{\partial \theta^2}+\frac{\partial^2}{\partial z^2}$\par
-\subsection*{Integrals}
-\textbf{Stokes' Theorem}: $\oint_c \vec{A}\cdot\vec{ds}=\iint_S(\vec{\nabla}\times\vec{A})\cdot\vec{dS}$\par 
-\textbf{Divergence Theorem}: $\oiint_S\vec{A}\cdot\vec{dS}=\oiiint_\mathcal{V}(\vec{\nabla}\cdot\vec{A}d\mathcal{V})$\par 
-\textbf{Gradient Theorem}: $\oiint_S p\vec{dS}=\oiiint_\mathcal{V} \vec{\nabla}pd\mathcal{V}$
 
 % ----- Basic Flow Equations ----- %
 \section*{Basic Flow Equations}
@@ -145,6 +117,7 @@ Material Acceleration: $(\frac{Du}{Dt};\frac{Dv}{Dt};\frac{Dz}{Dt})$\par
 Navier-Stokes:\par 
 $\rho\frac{Du}{Dt}=-\frac{\partial p}{\partial x}+\rho f_x+(\mathcal{F}_x)_{viscous}\rightarrow$ applicable to y and z as well.\par 
 
+% ----- Vorticity and Strain ----- %
 \subsection*{Vorticity and Strain}
 $\vec{\omega}=\frac{1}{2}\vec{\nabla}\times\vec{V}\rightarrow$ angular velocity\par 
 $\vec{\xi}=\vec{\nabla}\times\vec{V}\rightarrow$ Vorticity\par 
@@ -152,17 +125,123 @@ $\varepsilon_{xy}=\frac{\partial v}{\partial x}+\frac{\partial u}{\partial y}\ri
 $\Gamma=-\oint_C\vec{V}\cdot\vec{ds}\rightarrow$ Circulation\par 
 Relation between circulation and vorticity: $\vec{xi}\cdot\vec{n}=\frac{d\Gamma}{dS}$
 
+% ----- Stream Functions & Velocity Potentials ----- %
 \subsection*{Stream Functions and Velocity Potentials}
-\textbf{Stream Function}: For every incompressible, two-dimensional flow, there exists a scalar stream function such that: $u=\frac{\partial\psi}{\partial y}$, $v=-\frac{\partial\psi}{\partial x}$ DON'T FORGET +C\par 
-\textbf{Velocity Potential}: For every irrotational flow, there exists a scalar velocity potential such that: $\vec{V}=\vec{\nabla}\phi/rightarrow \frac{\partial\phi}{\partial x}=y$, $\frac{\partial\phi}{\partial y}=x$\par 
+\textbf{Stream Function}: For every incompressible, two-dimensional flow, there exists a scalar stream function such that:\par
+$u=\frac{\partial\psi}{\partial y}$, $v=-\frac{\partial\psi}{\partial x}$ DON'T FORGET +C\par
+$\vec{\nabla}^2\psi=0$\par 
+\textbf{Velocity Potential}: For every irrotational flow, there exists a scalar velocity potential such that:\par 
+$\vec{V}=\vec{\nabla}\phi\rightarrow \frac{\partial\phi}{\partial x}=y$, $\frac{\partial\phi}{\partial y}=x$\par 
+$\vec{\nabla}^2\phi=o$\par
+\textbf{Laplace's Equation}: 2nd order linear partial differential equation. Allows \textbf{superposition} if both $\psi_1$ and $\psi_2$ are soluations to $\vec{\nabla}^2\phi=o$, then $\psi_3=\psi_1+\psi_2$ is also a solution.\par 
+Finding Solutions:\par 
+1) Infinite Bounday Condition: far from the body, velocity is uniform and aligned with x-axis.\par 
+$\phi(x,y)=v_\infty x$ and $\psi(x,y)=v_\infty y$\par 
+2) Wall boundary: no flow of mass or momentum through solid boundaries.\par 
+$\frac{\partial \phi}{\partial n}=0$ and $\frac{\partial \psi}{\partial n}=0$\par 
+To Find L, D, and M:\par 
+1) Solve Laplace's eq. for $\phi$ w/ boundary conditions.\par 
+2) Obtain velocity field: $\vec{V}=\vec{\nabla}\phi$\par 
+3) Obtain P: Bernoulli's Equation
 \textbf{Euler's Equation}: $\frac{1}{2}d(V^2)=-\frac{1}{\rho}dp$\par 
 If flow is barotropic, $\rho=\rho(p)$ is a function of pressue only and can integrate the equation. Occurs in incompressible flow, isothermal flow, or isentropic (frictionless) flow.\par 
-\textbf{Bernoulli's Equation}: $p+\frac{1}{2}\rho V^2=\text{constant}$ - along a streamline for steady, inviscid, incompressible flow with no body forces.
+\textbf{Bernoulli's Equation}: $p+\frac{1}{2}\rho V^2=\text{constant}$ - along a streamline for steady, inviscid, incompressible flow with no body forces.\par 
+$c_P=1-\left(\frac{v}{v_\infty}\right)^2$
 
+% ----- Flow in a Duct ----- %
 \subsection*{Flow in a Duct}
 $\rho_1A_1V_1=\rho_2A_2V_2\rightarrow$ Steady, inviscid flow in a duct with no body forces. For incompressible flow remove rho.
 
+% ----- Elementary Flows ----- %
+\subsection*{Elementary Flows \& Combinations}
+\textbf{Uniform Flow}\par  
+$\phi(x,y) = v_\infty x$ and $\phi(r,\theta)=v_\infty r \cos{\theta}$\par 
+$\psi(x,y) = v_\infty y$ and $\phi(r,\theta)=v_\infty r \sin{\theta}$\par 
+$\Gamma = 0$\par 
+\textbf{Source/Sink}\par
+$\vec{V}=\begin{bmatrix}
+    \frac{\Lambda}{2\pi r}\\
+    0
+\end{bmatrix}$\par 
+$\phi(r,\theta)=\frac{\Lambda\ln(r)}{2\pi}$\par 
+$\psi(r,\theta)=\frac{\Lambda\theta}{2\pi}$\par 
+$\Gamma = 0$\par 
+\textbf{Superposition}\par
+Uniform Flow + Source\par 
+$\psi(r,\theta)=v_\infty r\sin{\theta}+\frac{\Lambda\theta}{2\pi r}$\par 
+Equation for Body Shape: $r(\theta)=\frac{\Lambda(\pi-\theta)}{2\pi v_\infty \sin{\theta}}$ and $h=\frac{\Lambda}{v_\infty}$\par 
+\textbf{Rankine Oval Flow}\par 
+Uniform Flow + Source + Sink\par 
+$\psi(r,\theta)=v_\infty r\sin{\theta}+\frac{\Lambda\theta_1}{2\pi}+\frac{-\Lambda\theta_2}{2\pi}$\par
+$\psi(x,y)=v_\infty y + \frac{\Lambda}{2\pi}\tan^{-1}\left(\frac{y}{x+b}\right)-\frac{\Lambda}{2\pi}\tan^{-1}\left( \frac{y}{x-b} \right)$\par 
+$\vec{V}=
+\begin{bmatrix}
+    v_\infty + \frac{\Lambda}{2\pi}\frac{x+b}{(x+b)^2+y^2}-\frac{\Lambda}{2\pi}\frac{x-b}{(x-b)^2+y^2}\\
+    \frac{\Lambda}{2\pi}\frac{y}{(x+b)^2+y^2}-\frac{\Lambda}{2\pi}\frac{y}{(x-b)^2+y^2}
+\end{bmatrix}
+$\par 
+Equation of a Rankine Oval:\par 
+$0=v_\infty y+\frac{\Lambda}{2\pi}\tan^-1\left(\frac{y}{x+b}\right)-\frac{\Lambda}{2\pi}\tan^-1\left(\frac{y}{x-b}\right)$\par 
+\includegraphics[width=0.75\linewidth]{Images/Rankine_Oval.jpg}\par 
+\textbf{Doublet}\par 
+Source + Sink\par 
+Rankine Oval $b\rightarrow 0$\par 
+$\psi(r,\theta)=\frac{-\kappa\sin{\theta}}{2\pi r}$\par 
+$\phi(r,\theta)=\frac{\kappa\cos{\theta}}{2\pi r}$\par 
+$\vec{V}=
+\begin{bmatrix}
+    -\frac{\kappa\cos{\theta}}{2\pi r^2}\\
+    -\frac{\kappa\sin{\theta}}{2\pi r^2}
+\end{bmatrix}$\par 
+\includegraphics[width=0.33\linewidth]{Images/Doublet.jpg}\par
+\textbf{Non-Lifting Flow over Cylinder}\par 
+Uniform Flow + Doublet\par 
+$\psi(r,\theta)=v_\infty r\sin{\theta}\left(1-\frac{R^2}{r^2}\right)$\par 
+$\vec{V}=\begin{bmatrix}
+    v_\infty\cos{\theta}\left(1-\frac{R^2}{r^2}\right)\\
+    -v_\infty\sin{\theta}\left(1+\frac{R^2}{r^2}\right)
+\end{bmatrix}$\par 
+Stagnation points at $v_r=v_\theta=0$ or $(r,\theta)=(R,0),(R,\pi)$\par 
+$L=D=0$, when $D=0$ it is called D'Alembert's Paradox\par 
+\textbf{Vortex Flow}\par 
+Rotation flow, but the fluid elements themselves do not rotate. They follow a streamline in a circle at a particular radius.\par 
+Must make $rv_\theta=c$ in order to prevent going to $r=0$ where flow is not irrotational.\par 
+$\vec{V}=\begin{bmatrix}
+    0\\
+    \frac{c}{r}=\frac{-\Gamma}{2\pi r}
+\end{bmatrix}$\par 
+$\phi(r,\theta)=\frac{-\Gamma\theta}{2\pi}$\par 
+$\psi(r,\theta)=\frac{\Gamma\ln{r}}{2\pi}$
 
+
+% ---------- Calculus ---------- %
+\section*{Calculus Review}
+\subsection*{Vector Calculus}
+\textbf{Magnitude}: $|\vec{A}|=\sqrt{A_1^2+A_2^2+a_3^2}$\par 
+\textbf{Dot Product}: $\vec{A}\cdot\vec{B}=A_xB_x+A_yB_y+A_zB_z=|\vec{A}||\vec{B}|\cos{\theta}$\par 
+\textbf{Cross Product}:$\vec{A}\times\vec{B}=(A_yB_z-A_zB_y)\hat{i}+(A+zB_x-a_xB_z)\hat{j}+(A_xB_y-A_yB_x)\hat{k}$\par
+$|\vec{A}\times\vec{B}|=|\vec{A}||\vec{B}|\sin{\theta}$\par 
+\textbf{Gradient of Scalar Field}: Vector Field\par 
+Cart.: $\vec{\nabla}p=\frac{\partial p}{\partial x}\hat{i}+\frac{\partial p}{\partial y}\hat{j}+\frac{\partial p}{\partial z}\hat{k}$\par 
+Cyl.: $\vec{\nabla}p=\frac{\partial p}{\partial r}\hat{r}+\frac{1}{r}\frac{\partial p}{\partial \theta}\hat{\theta}+\frac{\partial p}{\partial z}\hat{z}$\par
+Directional Derivative: $\frac{dp}{ds}=\vec{\nabla}p\cdot\vec{s}$-> unit vector in $\vec{s}$ direction.\par 
+\textbf{Divergence of a Vector Field}: Scalar Field\par 
+Cart.: $\text{div}\vec{V}=\vec{\nabla}\cdot\vec{V}=\frac{\partial V_x}{\partial x}+\frac{\partial V_y}{\partial y}+\frac{\partial V_z}{\partial z}$\par 
+Cyl.: $\text{div}\vec{V}=\vec{\nabla}\cdot\vec{V}=\frac{1}{r}\frac{\partial(r V_r)}{\partial r}+\frac{1}{r}\frac{\partial V_\theta}{\partial \theta}+\frac{\partial V_z}{\partial z}$\par 
+\textbf{Curl of a Vector Field}: $\text{curl}\vec{V}=\vec{\nabla}\times\vec{V}$\par 
+Cart.: $=(\frac{\partial V_z}{\partial y}-\frac{\partial V_y}{\partial z})\hat{i}
++(\frac{\partial V_x}{\partial z}-\frac{\partial V_z}{\partial x})\hat{j}
++(\frac{\partial V_y}{\partial x}-\frac{\partial V_x}{\partial y})\hat{k}$\par 
+Cyl.: $=(\frac{1}{r}\frac{\partial V_z}{\partial \theta}-\frac{\partial V_\theta}{\partial z})\hat{r}
++(\frac{\partial V_r}{\partial z}-\frac{\partial V_z}{\partial r})\hat{\theta}
++(\frac{1}{r}\frac{\partial}{\partial r}(V_\theta r)-\frac{1}{r}\frac{\partial V_r}{\partial \theta})\hat{z}$\par
+\textbf{Laplacian}:$\nabla^2$\par 
+Cart.: $=\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\frac{\partial^2}{\partial z^2}$\par 
+Cyl.: $=\frac{1}{r}\frac{\partial}{\partial r}(r\frac{\partial}{\partial r})+\frac{1}{r^2}\frac{\partial^2}{\partial \theta^2}+\frac{\partial^2}{\partial z^2}$\par
+\subsection*{Integrals}
+\textbf{Stokes' Theorem}: $\oint_c \vec{A}\cdot\vec{ds}=\iint_S(\vec{\nabla}\times\vec{A})\cdot\vec{dS}$\par 
+\textbf{Divergence Theorem}: $\oiint_S\vec{A}\cdot\vec{dS}=\oiiint_\mathcal{V}(\vec{\nabla}\cdot\vec{A}d\mathcal{V})$\par 
+\textbf{Gradient Theorem}: $\oiint_S p\vec{dS}=\oiiint_\mathcal{V} \vec{\nabla}pd\mathcal{V}$
 
 \end{multicols*}
 \end{document}
