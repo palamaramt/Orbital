@@ -73,14 +73,14 @@ where ${\Pi_i}$ are dimensionaless variables known as Pi Groups.
 % ----- Basic Flow Equations ----- %
 \section*{Basic Flow Equations}
 Fixed control volumes for basic flow equations.\par 
-\subsection*{Conservation of Mass}
+\underline{Conservation of Mass}\par 
 Net mass flow out of $\mathcal{V}$ = Time rate of decrease of mass inside $\mathcal{V}$.\par 
-\textbf{Integral Continuity Equation}:\par 
+Integral Continuity Equation:\par 
 $\frac{\partial}{\partial t}\oiiint_\mathcal{V}\rho d\mathcal{V}+\oiint_S\rho\vec{V}\cdot\vec{dS}=0$\par
-\textbf{Differential Continuity Equation}:\par
-$\frac{\partial\rho}{\partial t}+\vec{\nabla}\cdot(\rho\vec{V})=0$
+Differential Continuity Equation:\par
+$\frac{\partial\rho}{\partial t}+\vec{\nabla}\cdot(\rho\vec{V})=0$\par 
 
-\subsection*{Conservation of Momentum}
+\underline{Conservation of Momentum}\par 
 Net force applied to $\mathcal{V}$ = Time rate of change of momentum of fluid in $\mathcal{V}$\par 
 $\frac{\partial}{\partial t}\oiiint_\mathcal{V}\rho\vec{V}d\mathcal{V}+\oiint_S(\rho\vec{V}\cdot\vec{dS})\vec{V}=-\oiint_S p\vec{dS}+\oiiint_\mathcal{V}\rho\vec{f}d\mathcal{V}+\vec{F}_{viscous}$
 \begin{enumerate}
@@ -97,9 +97,12 @@ $\frac{\partial}{\partial t}\oiiint_\mathcal{V}\rho\vec{V}d\mathcal{V}+\oiint_S(
 $\frac{\partial}{\partial t}(\rho u)+\vec{\nabla}\cdot(\rho u \vec{V}) = -\frac{\partial p}{\partial x}+\rho f_x+(\mathcal{F}_x)_{viscous}$\par
 $\frac{\partial}{\partial t}(\rho v)+\vec{\nabla}\cdot(\rho v \vec{V}) = -\frac{\partial p}{\partial y}+\rho f_y+(\mathcal{F}_y)_{viscous}$\par
 
-\subsection*{Conservation of Energy}
-\includegraphics[width=.75\linewidth]{Images/consv_energy.png}\par
-\includegraphics[width=.75\linewidth]{Images/consv_energy_diff.png}
+\underline{Conservation of Energy}\par
+Integral:\par 
+$\frac{\partial}{\partial t}\oiiint_\mathcal{V}\rho\left(e+\frac{V^2}{2}\right)d\mathcal{V}+\oiint_S\rho\left(e+\frac{V^2}{2}\right)\vec{V}\cdot\vec{dS}=\oiiint_\mathcal{V}\dot{q}\rho d\mathcal{V}+\dot{Q}_{viscous}-\oiint_S p\vec{V}\cdot\vec{dS}+\oiiint_\mathcal{V}\rho\vec{f}\cdot\vec{V}d\mathcal{V}+\dot{W}_{viscous}$\par 
+Net Time Rate of Change of Total E Due to Unsteadiness in $\mathcal{V}$ + Net Rate of Flow of Total E out of $\mathcal{V}$ = Rate of Volumetric Heating + Heat Addition due to Viscosity - Rate of Pressure work + Rate of Work Done by Body Forces + Rate of Viscous Work\par 
+Differential:\par 
+$\frac{\partial}{\partial t}\left(\rho\left(e+\frac{V^2}{2}\right)\right)+\vec{\nabla}\cdot\left(\rho\left(e+\frac{V^2}{2}\right)\right)=\rho\dot{q}+\dot{Q}'_{viscous}-\vec{\nabla}\cdot(p\vec{V})+\rho\vec{f}\cdot\vec{V}+\dot{W}'_{viscous}$
 
 % ----- Kinematics ----- %
 \section*{Kinematics}
@@ -131,9 +134,9 @@ Relation between circulation and vorticity: $\vec{xi}\cdot\vec{n}=\frac{d\Gamma}
 $u=\frac{\partial\psi}{\partial y}$, $v=-\frac{\partial\psi}{\partial x}$ DON'T FORGET +C\par
 $\vec{\nabla}^2\psi=0$\par 
 \textbf{Velocity Potential}: For every irrotational flow, there exists a scalar velocity potential such that:\par 
-$\vec{V}=\vec{\nabla}\phi\rightarrow \frac{\partial\phi}{\partial x}=y$, $\frac{\partial\phi}{\partial y}=x$\par 
-$\vec{\nabla}^2\phi=o$\par
-\textbf{Laplace's Equation}: 2nd order linear partial differential equation. Allows \textbf{superposition} if both $\psi_1$ and $\psi_2$ are soluations to $\vec{\nabla}^2\phi=o$, then $\psi_3=\psi_1+\psi_2$ is also a solution.\par 
+$\vec{V}=\vec{\nabla}\phi\rightarrow \frac{\partial\phi}{\partial x}=u$, $\frac{\partial\phi}{\partial y}=v$\par 
+$\vec{\nabla}^2\phi=0$\par
+\textbf{Laplace's Equation}: 2nd order linear partial differential equation. Allows \textbf{superposition} if both $\psi_1$ and $\psi_2$ are soluations to $\vec{\nabla}^2\psi=0$, then $\psi_3=\psi_1+\psi_2$ is also a solution.\par 
 Finding Solutions:\par 
 1) Infinite Bounday Condition: far from the body, velocity is uniform and aligned with x-axis.\par 
 $\phi(x,y)=v_\infty x$ and $\psi(x,y)=v_\infty y$\par 
@@ -211,7 +214,16 @@ $\vec{V}=\begin{bmatrix}
     \frac{c}{r}=\frac{-\Gamma}{2\pi r}
 \end{bmatrix}$\par 
 $\phi(r,\theta)=\frac{-\Gamma\theta}{2\pi}$\par 
-$\psi(r,\theta)=\frac{\Gamma\ln{r}}{2\pi}$
+$\psi(r,\theta)=\frac{\Gamma\ln{r}}{2\pi}$\par 
+\textbf{Lifting Flow over Cylinder}\par 
+Cyliner + Vortex\par 
+$\psi = (v_\infty r\sin{\theta})\left(1-\frac{R^2}{r^2}\right)+\frac{\Gamma}{2\pi}\ln{\frac{r}{R}}$\par 
+$\vec{V} = \begin{bmatrix}
+    v_\infty\cos{\theta}\left(1-\frac{R^2}{r^2}\right)\\
+    -\left(1+\frac{R^2}{r^2}\right)v_\infty\sin{\theta}-\frac{\Gamma}{2\pi r}
+\end{bmatrix}$\par 
+Stagnation Points\par 
+$r=R$, $\theta=\sin^{-1}{\frac{-\Gamma}{4\pi v_\infty R}}$
 
 
 % ---------- Calculus ---------- %
@@ -236,8 +248,10 @@ Cyl.: $=(\frac{1}{r}\frac{\partial V_z}{\partial \theta}-\frac{\partial V_\theta
 +(\frac{\partial V_r}{\partial z}-\frac{\partial V_z}{\partial r})\hat{\theta}
 +(\frac{1}{r}\frac{\partial}{\partial r}(V_\theta r)-\frac{1}{r}\frac{\partial V_r}{\partial \theta})\hat{z}$\par
 \textbf{Laplacian}:$\nabla^2$\par 
-Cart.: $=\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\frac{\partial^2}{\partial z^2}$\par 
-Cyl.: $=\frac{1}{r}\frac{\partial}{\partial r}(r\frac{\partial}{\partial r})+\frac{1}{r^2}\frac{\partial^2}{\partial \theta^2}+\frac{\partial^2}{\partial z^2}$\par
+Cart.: $=\frac{\partial^2f}{\partial x^2}+\frac{\partial^2f}{\partial y^2}+\frac{\partial^2f}{\partial z^2}$\par 
+Cyl.: $=\frac{1}{r}\frac{\partial}{\partial r}(r\frac{\partial f}{\partial r})+\frac{1}{r^2}\frac{\partial^2f}{\partial \theta^2}+\frac{\partial^2f}{\partial z^2}$\par
+Sph.: $=\frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2\frac{\partial f}{\partial r}\right)+\frac{1}{r^2\sin{\theta}}\frac{\partial}{\partial\theta}\left(\sin{\theta}\frac{\partial f}{\partial\theta}\right)+\frac{1}{r^2\sin^2\theta}\frac{\partial^2f}{\partial\psi^2}$
+
 \subsection*{Integrals}
 \textbf{Stokes' Theorem}: $\oint_c \vec{A}\cdot\vec{ds}=\iint_S(\vec{\nabla}\times\vec{A})\cdot\vec{dS}$\par 
 \textbf{Divergence Theorem}: $\oiint_S\vec{A}\cdot\vec{dS}=\oiiint_\mathcal{V}(\vec{\nabla}\cdot\vec{A}d\mathcal{V})$\par 
